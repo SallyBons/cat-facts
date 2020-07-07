@@ -9,17 +9,10 @@ export default new Vuex.Store({
     putDataInStore(state, data) {
       state.info = data;
     },
-    putImgInStore(state, data) {
-      state.img = data;
-      console.log(state.img);
-    },
   },
   actions: {
     putDataInStore(context, value) {
       context.commit("putDataInStore", value);
-    },
-    putImgInStore(context, value) {
-      context.commit("putImgInStore", value);
     },
   },
   modules: {},
