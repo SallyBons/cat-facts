@@ -3,8 +3,10 @@ import App from "./App.vue";
 import router from "./router";
 import store from "./store";
 import axios from "axios";
+import { Skeleton } from "vue-loading-skeleton";
 
 Vue.config.productionTip = false;
+Vue.use(Skeleton);
 
 new Vue({
   router,

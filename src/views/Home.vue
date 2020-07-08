@@ -40,9 +40,8 @@ export default {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
-  margin: 0 auto;
+  justify-content: center;
+  width: 100%;
   max-width: 1400px;
 }
 .button-load-more {
