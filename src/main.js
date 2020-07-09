@@ -12,7 +12,9 @@ let getDefaultInfo = () => {
   axios.get("https://cat-fact.herokuapp.com/facts").then((response) => {
     store.dispatch(
       "putDataInStore",
-      response.data.all.filter((element) => element.text.length < 100)
+      response.data.all.filter(
+        (element) => element.text.length > 70 && element.text.length < 100
+      )
     );
   });
 };

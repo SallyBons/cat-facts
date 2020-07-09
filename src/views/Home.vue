@@ -17,7 +17,6 @@
 <script>
 // @ is an alias to /src
 import { mapState } from "vuex";
-
 import Card from "@/components/Card.vue";
 
 export default {
