@@ -22,15 +22,8 @@
         <div class="skeleton-wrapper-2">
           <Skeleton height="54px" />
         </div>
-        <!-- <div style="height:18px; margin-botton: 10px"></div> -->
-        <!-- <p v-if="author">By {{ `${author.name.first} ${author.name.last}` }}</p> -->
-        <!-- <p v-if="this.isLoaded">Likes: {{ likes }}</p>
-        <Skeleton height="18px" v-else />
-        <p v-if="this.isLoaded">Fact: {{ info }}</p>
-        <Skeleton v-else />-->
       </div>
     </SkeletonTheme>
-    <!-- <Skeleton v-else /> -->
   </div>
 </template>
 
@@ -58,9 +51,6 @@ export default {
     };
   },
   watch: {
-    // isLoaded: function() {
-    //   console.log(this.isLoaded);
-    // }
     image: function() {
       this.onImgLoad();
     }
@@ -78,7 +68,6 @@ export default {
     },
     setImage() {
       //load picture in background
-
       this.imageUrl = this.url;
       this.image = "";
 
@@ -109,7 +98,6 @@ export default {
 .card-wrapper {
   max-width: 300px;
   width: 100%;
-  /* border: 1px solid gray; */
   margin-bottom: 15px;
   min-height: 356px;
   -webkit-box-shadow: 0px 0px 25px 2px rgba(214, 214, 214, 0.4);
@@ -121,7 +109,6 @@ export default {
 }
 
 .card-wrapper .img {
-  /* background-image: var(--background-image); */
   max-width: 300px;
   width: 100%;
   min-height: 200px;

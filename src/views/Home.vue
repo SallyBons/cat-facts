@@ -1,21 +1,23 @@
 <template>
   <div class="home">
     <h1>Cat's Facts</h1>
-    <div class="cards-main-wrapper" v-if="content">
+    <div class="cards-main-wrapper">
       <Card
-        v-for="item in content.slice(0, 8)"
+        v-for="item in cardList"
         :info="item.text"
         :author="item.user"
         :likes="item.upvotes"
         :key="item.text"
       />
     </div>
-    <div class="button-load-more" v-on:click="handler(8)">Load more</div>
+    <div v-if="!this.isLastPage" v-on:click="showMore()" class="button-load-more">Load more</div>
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
+import { mapState } from "vuex";
+
 import Card from "@/components/Card.vue";
 
 export default {
@@ -24,13 +26,22 @@ export default {
     Card
   },
   computed: {
-    content: function() {
-      return this.$store.state.info;
+    ...mapState({
+      page: state => state.page,
+      info: state => state.info
+    }),
+    cardList: function() {
+      return this.info
+        ? this.info.slice(this.page * 8, (this.page + 1) * 8)
+        : undefined;
+    },
+    isLastPage: function() {
+      return this.info ? (this.page + 1) * 8 >= this.info.length : true;
     }
   },
   methods: {
-    handler: function(count) {
-      return this.$store.state.info.splice(0, 8 + count);
+    showMore: function() {
+      this.$store.dispatch("pageIncrement");
     }
   }
 };
@@ -55,6 +66,7 @@ export default {
   align-items: center;
   justify-content: center;
   cursor: pointer;
+  margin-top: 25px;
 }
 .button-load-more:hover {
   border: 1px solid transparent;
