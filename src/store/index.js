@@ -4,7 +4,7 @@ import Vuex from "vuex";
 Vue.use(Vuex);
 
 export default new Vuex.Store({
-  state: { info: undefined, img: null, page: 0 },
+  state: { info: undefined, page: 0 },
   getters: {
     getInfo: (state) => {
       return state.info;

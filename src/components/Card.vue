@@ -7,19 +7,24 @@
     />
     <Skeleton height="200px" v-else />
     <div class="content-wrapper" v-if="this.isLoaded">
-      <p v-if="author">By {{ `${author.name.first} ${author.name.last}` }}</p>
-      <p>Likes: {{ likes }}</p>
-      <p>Fact: {{ info }}</p>
+      <div class="icons-wrapper">
+        <p v-if="author">
+          <img class="icon" src="../assets/user.svg" />
+          {{ `${author.name.first} ${author.name.last}` }}
+        </p>
+        <p>
+          <img class="icon" src="../assets/heart.svg" />
+          {{ likes }}
+        </p>
+      </div>
+      <p>{{ info }}</p>
     </div>
     <SkeletonTheme v-else>
       <div class="content-wrapper">
-        <div class="skeleton-wrapper-1">
+        <div class="skeleton-wrapper">
           <Skeleton height="18px" />
         </div>
-        <div class="skeleton-wrapper-2">
-          <Skeleton height="18px" />
-        </div>
-        <div class="skeleton-wrapper-2">
+        <div class="skeleton-wrapper">
           <Skeleton height="54px" />
         </div>
       </div>
@@ -99,7 +104,7 @@ export default {
   max-width: 300px;
   width: 100%;
   margin-bottom: 15px;
-  min-height: 356px;
+  min-height: 325px;
   -webkit-box-shadow: 0px 0px 25px 2px rgba(214, 214, 214, 0.4);
   -moz-box-shadow: 0px 0px 25px 2px rgba(214, 214, 214, 0.4);
   box-shadow: 0px 0px 25px 2px rgba(214, 214, 214, 0.4);
@@ -126,15 +131,26 @@ export default {
 .content-wrapper p {
   text-align: left;
   margin-top: 0px;
-  margin-bottom: 10px;
+  margin-bottom: 0;
+  display: flex;
+  align-items: center;
 }
 
 .content-wrapper p:last-of-type {
   margin-bottom: 0px;
 }
 
-.skeleton-wrapper-1,
-.skeleton-wrapper-2 {
+.skeleton-wrapper {
   margin-bottom: 10px;
+}
+.icons-wrapper {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+.icon {
+  width: 15px;
+  height: 15px;
+  margin-right: 5px;
 }
 </style>
